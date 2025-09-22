@@ -1,0 +1,106 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Access Blocked</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    .logo img {
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #d9534f;
+      font-size: 32px;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: #333;
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 10px auto;
+      max-width: 600px;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      font-size: 16px;
+    }
+
+    td {
+      padding: 8px 16px;
+      border: 1px solid #ccc;
+    }
+
+    td:first-child {
+      font-weight: bold;
+      background-color: #fafafa;
+    }
+
+    a {
+      color: #2f71b2;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <img src="https://raw.githubusercontent.com/VDCOpsEng/Block-page/main/vantage_logo_small-png.png" alt="Vantage Logo">
+  </div>
+
+  <!-- Updated per Judy's request -->
+  <h1>Web Filter Access Blocked</h1>
+  <h3>Access Denied</h3>
+
+  <p>This site is blocked. The site or category is prohibited in accordance with the Acceptable Use Policy.</p>
+  <p>If this site is required for business purposes, please 
+    <a href="https://vantagedatacentersprod.service-now.com/esc?id=sc_cat_item&sys_id=01478b55fb5d1e10035bff314eefdc5c" target="_blank">
+      click here
+    </a>
+    to submit a Cybersecurity Exception request through ServiceNow.
+  </p>
+
+  <table>
+    <tr>
+      <td>Blocked Domain</td>
+      <td id="blocked-domain">Loading...</td>
+    </tr>
+    <tr>
+      <td>Categories</td>
+      <td id="blocked-categories">Loading...</td>
+    </tr>
+    <tr>
+      <td>Username</td>
+      <td id="username">Loading...</td>
+    </tr>
+  </table>
+
+  <script>
+    const params = new URLSearchParams(window.location.hash.substring(1));
+
+    document.getElementById("blocked-domain").textContent = params.get("domain") || "[Unknown]";
+    document.getElementById("blocked-categories").textContent = params.get("categories") || "[Unknown]";
+    document.getElementById("username").textContent = params.get("user") || "[Unavailable]";
+  </script>
+
+</body>
+</html>
